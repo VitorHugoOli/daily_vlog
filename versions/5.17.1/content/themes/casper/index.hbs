@@ -50,3 +50,29 @@ into the {body} of the default.hbs template --}}
 
 </div>
 </main>
+
+<script>
+    const carousel = document.querySelector("body > div.viewport > div > div > img");
+    const images = [
+        './assets/home/1.jpeg',
+        './assets/home/2.jpeg',
+        './assets/home/3.jpeg',
+        './assets/home/4.jpeg',
+        './assets/home/5.jpeg',
+        './assets/home/6.jpeg',
+        // './assets/home/7.jpeg',
+    ];
+
+    let i = 1;
+    // add transition to carousel
+    carousel.classList.add("fade-in");
+    setInterval(() => {
+        let image = images[i];
+        carousel.src = image;
+        carousel.srcset = `${image}  300w, ${image} 600w, ${image} 1000w, ${image} 2000w`;
+        i++;
+        if (i >= images.length) {
+            i = 0;
+        }
+    }, 8000);
+</script>
